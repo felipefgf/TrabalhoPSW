@@ -20,10 +20,36 @@
 		<br/>
 		<p:outputLabel value="Jogadas: "  style="font-weight:bold;"/>
 		<p:outputLabel value="#{hangmanBean.attempts}" />
-		<br/>
-		<h:inputText></h:inputText>
-		<h:button value="Ok" action="#{hangmanBean.input}" />
-		<h:button value="reset" action="#{hangmanBean.reset}" />
+		<hr/>
+		<p:inputText value="#{hangmanBean.letter}" maxlength="1" size="2"
+					  disabled="#{hangmanBean.isGameOver()}">
+			<p:ajax event="keyup" update="form" />
+		</p:inputText>
+		<p:commandButton value="Guess!" action="#{hangmanBean.guess()}"
+		                                update="form" 
+		                                disabled="#{(empty hangmanBean.letter) or hangmanBean.isGameOver()}" />
+		<p:spacer width="15px" />
+		<p:commandButton value="Reset" action="#{hangmanBean.reset()}"
+		                                update="form" />
+		<ui:fragment rendered="#{hangmanBean.isGameOver()}">
+			<hr/>
+			<h2>
+				<h:outputText value="Congratulations, you guessed!" 
+							  rendered="#{hangmanBean.isGameWin()}"/>
+				<h:outputText value="You are dead, hanged dead..."  
+				              rendered="#{hangmanBean.isGameLose()}"/>
+			</h2>
+		</ui:fragment>
 	</h:form>
 </h:body>
 </html>
+
+
+
+
+
+
+
+
+
+

@@ -11,6 +11,7 @@ public class HangmanBean
 	// Dados da Página
 	//
 	private Hangman hangman;
+	private String letter;
 	
 	//
 	// Construtor
@@ -20,6 +21,38 @@ public class HangmanBean
 		hangman = new Hangman();
 		hangman.reset();
 	}
+	
+	//
+	// Operações da Página
+	//
+	public void guess()
+	{
+		char chr = letter.toCharArray()[0];
+		hangman.input(chr);
+		letter="";
+	}
+	
+	public void reset()
+	{
+		hangman.reset();		
+	}
+	
+	public boolean isGameOver()
+	{
+		return hangman.isComplete() || hangman.getChances()==0;
+	}
+	
+	public boolean isGameWin()
+	{
+		return hangman.isComplete();
+	}
+	
+	public boolean isGameLose()
+	{
+		return hangman.getChances()==0;
+	}
+
+	
 	
 	//
 	// Métodos de Acesso
@@ -39,15 +72,16 @@ public class HangmanBean
 		return hangman.getInputHistory().toString();
 	}
 	
-	public void reset()
-	{
-		hangman.reset();
+	public String getLetter() {
+		return letter;
 	}
 	
-	public void input(char chr) {
-		hangman.input(chr);
+	public void setLetter(String letter) {
+		this.letter = letter;
 	}
 }  
+
+
 
 
 

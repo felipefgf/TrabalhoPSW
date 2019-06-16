@@ -25,6 +25,8 @@ public class Hangman
 	public void reset(String forcedWord)
 	{
 		currentWord = new Word(forcedWord);
+		history.clear();
+		chances = 6;
 	}
 	
 	// Faz input de um caractere
