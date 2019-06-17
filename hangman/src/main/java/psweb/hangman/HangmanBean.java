@@ -20,9 +20,8 @@ public class HangmanBean
 	//
 	public HangmanBean()
 	{
-		pokemon = new Pokemon();
 		hangman = new Hangman();
-		hangman.reset(pokemon.getNome());
+		hangman.reset();
 	}
 	
 	//
@@ -87,6 +86,10 @@ public class HangmanBean
 	
 	public String getPokedex() {
 		return pokemon.getPokedex();
+	}
+	
+	public String getWordWithoutMask() {
+		return hangman.getAnswerAsString();
 	}
 }  
 
