@@ -8,7 +8,6 @@ public class Hangman
 	private int chances = 6;
 	private Word currentWord;
 	private List<Character> history;
-	private Pokemon pokemon;
 	
 	public Hangman()
 	{
