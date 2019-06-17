@@ -43,24 +43,20 @@ public class Pokemon {
 	}
 	
 	public String getDica(int chances) {
-		if(chances == 5) {
-			return "Já errou... Mas ok, meu trabalho é tentar te ajudar, né? Afinal você é só um nerd jogando um jogo da forca de pokemon... Lá vai uma referência: Achou que já ia ganhar dica? Achou errado, otário!";
-		}
-		if(chances == 4) {
-			return "Tá, essa é fácil! Pra não dificultar para você, vou ajudar dizendo, SÓ POKEMONS da PRIMEIRA geração, já que aparentemente você não leu o título do jogo.";
-		}
-		if(chances < 4 && chances >= 2) {
+		if(chances == 6)return "Olá, sou a GLaDOS, você já deve ter esbarrado comigo em um dos testes da Aperture Science, mas estou fazendo um freela aqui, o que não sinifica que gosto de te ajudar. Enfim, sou sua ajudante para tentar acertar nesse jogo difíiiiiicillll, nossa, nem imagina o quanto... A sim, eles me proibíram de te dar um bolo, caso vença. Divirta-se, ou não...";
+		if(chances == 5)return "Você ainda não tem direito a Dica, pq não tenta errar mais? Falar nisso, acho que você deu uma engorada desde o começo do jogo...";
+		if(chances == 4)return "Já errou de novo... Mas ok, meu trabalho é tentar te ajudar, né? Afinal você é só um nerd jogando um jogo da forca de pokemon...";
+		if(chances == 3)return "Tá, essa é fácil! Pra não dificultar para você, vou ajudar dizendo, SÓ POKEMONS da PRIMEIRA geração, já que aparentemente você não leu o título do jogo.";
+		if(chances == 2) {
 			if(tipo2.toString().contentEquals("---")) {
-				return "Agora vai, né? Seu tipo é (apenas): "+tipo1;
+				return "Agora vai, né? Esse pokemon não tem um segundo tipo, é apenas aquele que falei antes de você errar, como tem feito com maestria. Como vejo que sua memória não é tão boa assim, deixo aqui o tipo que eu já tinha te falado: "+tipo1;
 			}else{
-				return "Agora vai, né? Seus tipos são: "+tipo1+" e "+tipo2;
+				return "Você está errando com maestria... Vamos a mais uma dica: esse pokemon não tem um segundo tipo, o que significa que ele tem DOIS tipos, curioso, não? Como vejo que sua memória não é tão boa assim, deixo aqui o tipo que eu já tinha te falado: "+tipo1+" e o tipo novo" +tipo2;
 			}
 		}
-		if(chances < 2 && chances > 0) {
-			return "Vou dar a maior dica, vai pesquisar no google, vai... Seu número na Pokedex é: "+pokedex;
-		}
+		if(chances == 1)return "Vou dar a maior dica, vai pesquisar no google, vai... Seu número na Pokedex é: "+pokedex;
 		if(chances == 0)return "Começa de novo, você não é o Fodão?";
-		return "Você ainda não tem direito a Dica, pq não tenta errar mais? Falar nisso, acho que você deu uma engorada desde o último jogo...";
+		return "";
 	}
 
 	@Override
