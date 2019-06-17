@@ -37,7 +37,8 @@ public class HangmanBean
 	
 	public void reset()
 	{
-		hangman.reset();		
+		pokemon = new Pokemon();
+		hangman.reset(pokemon.getNome());
 	}
 	
 	public boolean isGameOver()

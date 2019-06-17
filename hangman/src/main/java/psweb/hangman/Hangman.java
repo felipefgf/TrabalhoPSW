@@ -18,8 +18,7 @@ public class Hangman
 	// Sorteia uma nova palavra
 	public void reset()
 	{
-		pokemon = new Pokemon();
-		currentWord = new Word(pokemon.getNome());
+		currentWord = new Word("Teste");
 		history.clear();
 		chances = 6;
 	}
