@@ -40,9 +40,9 @@
 			<h2>
 				<h:outputText value="Acertou!!!" 
 							  rendered="#{hangmanBean.isGameWin()}"/>
-				<h:outputText value="Errou! Era o #{hangmanBean.getWord}"  
+				<h:outputText value="Errou! Era o #{hangmanBean.getWord()}"  
 				              rendered="#{hangmanBean.isGameLose()}"/>
-              	<h:graphicImage library="resources" name="sprites/113.png"/>
+              	<h:graphicImage value="resources/sprites/#{hangmanBean.getPokedex()}.png"></h:graphicImage>
 			</h2>
 		</ui:fragment>
 	</h:form>
