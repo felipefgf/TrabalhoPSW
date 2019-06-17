@@ -89,7 +89,7 @@ public class HangmanBean
 	}
 	
 	public String getWordWithoutMask() {
-		return hangman.getAnswerAsString();
+		hangman.getAnswerAsString();
 	}
 }  
 
