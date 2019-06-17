@@ -10,7 +10,8 @@
 	
 <h:body>
 	<h:form id="form">
-		<h2>The Hangman Game!</h2>
+		<h2>Qual é esse pokemon?!</h2>
+		<h5>Somente pokemons da primeira geração! (#1 a #151)</h5>
 		<hr/>
 		<p:outputLabel value="Palavra: "  style="font-weight:bold;"/>
 		<p:outputLabel style="margin-left:1vw;letter-spacing: 1vw;" value="#{hangmanBean.word}" />
@@ -41,7 +42,7 @@
 							  rendered="#{hangmanBean.isGameWin()}"/>
 				<h:outputText value="Errou! Era o #{hangmanBean.getWord}"  
 				              rendered="#{hangmanBean.isGameLose()}"/>
-              	<h:graphicImage library="sprites" name="sprites#{hengmanBean.getPokedex}.png"/>
+              	<h:graphicImage library="resources" name="sprites/113.png"/>
 			</h2>
 		</ui:fragment>
 	</h:form>

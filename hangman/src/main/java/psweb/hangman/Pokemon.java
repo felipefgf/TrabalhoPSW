@@ -43,18 +43,24 @@ public class Pokemon {
 	}
 	
 	public String getDica(int chances) {
+		if(chances == 5) {
+			return "Já errou... Mas ok, meu trabalho é tentar te ajudar, né? Afinal você é só um nerd jogando um jogo da forca de pokemon... Lá vai uma referência: Achou que já ia ganhar dica? Achou errado, otário!";
+		}
+		if(chances == 4) {
+			return "Tá, essa é fácil! Pra não dificultar para você, vou ajudar dizendo, SÓ POKEMONS da PRIMEIRA geração, já que aparentemente você não leu o título do jogo.";
+		}
 		if(chances < 4 && chances >= 2) {
 			if(tipo2.toString().contentEquals("---")) {
-				return "Seu tipo é (apenas): "+tipo1;
+				return "Agora vai, né? Seu tipo é (apenas): "+tipo1;
 			}else{
-				return "Seus tipos são: "+tipo1+" e "+tipo2;
+				return "Agora vai, né? Seus tipos são: "+tipo1+" e "+tipo2;
 			}
 		}
 		if(chances < 2 && chances > 0) {
-			return "Seu número na Pokedex é: "+pokedex;
+			return "Vou dar a maior dica, vai pesquisar no google, vai... Seu número na Pokedex é: "+pokedex;
 		}
-		if(chances == 0)return "o nome dele era: "+nome;
-		return "Você ainda não tem direito a Dica, pq não tenta errar mais?";
+		if(chances == 0)return "Começa de novo, você não é o Fodão?";
+		return "Você ainda não tem direito a Dica, pq não tenta errar mais? Falar nisso, acho que você deu uma engorada desde o último jogo...";
 	}
 
 	@Override
