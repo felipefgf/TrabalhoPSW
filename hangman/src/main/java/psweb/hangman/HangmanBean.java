@@ -12,7 +12,7 @@ public class HangmanBean
 	//
 	private Hangman hangman;
 	private String letter;
-	private Pokemon pokemon;
+	pokemon = newPokemon();
 	
 	//
 	// Construtor
@@ -21,7 +21,6 @@ public class HangmanBean
 	{
 		hangman = new Hangman();
 		hangman.reset();
-		pokemon = new Pokemon();
 	}
 	
 	//
@@ -61,7 +60,7 @@ public class HangmanBean
 	//
 	public String getWord()
 	{
-		return pokemon.getNome();
+		return hangman.getWordAsString();
 	}
 	
 	public int getChances()

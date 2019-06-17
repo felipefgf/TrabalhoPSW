@@ -3,6 +3,7 @@ package psweb.hangman;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.json.JSONObject;
 
 public class Pokemon {
 	String nome;
@@ -22,7 +23,9 @@ public class Pokemon {
 						+ response.getStatus());
 			}
 			String output = response.getEntity(String.class);
-			this.nome = output;
+			
+			JSONObject pokeJson = new JSONObject(output.toString());
+			this.nome = pokeJson.getString("pokemon");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
