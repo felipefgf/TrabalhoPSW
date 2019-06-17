@@ -12,15 +12,17 @@ public class HangmanBean
 	//
 	private Hangman hangman;
 	private String letter;
-	pokemon = newPokemon();
+	private Pokemon pokemon;
+	
 	
 	//
 	// Construtor
 	//
 	public HangmanBean()
 	{
+		pokemon = new Pokemon();
 		hangman = new Hangman();
-		hangman.reset();
+		hangman.reset(pokemon.getNome());
 	}
 	
 	//
