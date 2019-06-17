@@ -10,6 +10,7 @@ public class Pokemon {
 	String pokedex;
 	String tipo1;
 	String tipo2;
+	String sprite;
 	
 	public Pokemon() {
 		try {
@@ -24,8 +25,12 @@ public class Pokemon {
 			}
 			String output = response.getEntity(String.class);
 			
-			JSONObject pokeJson = new JSONObject(output.toString());
+			JSONObject pokeJson = new JSONObject(output.toString());  // Fonte: https://www.devmedia.com.br/trabalhando-com-json-em-java-o-pacote-org-json/25480
 			this.nome = pokeJson.getString("pokemon");
+			this.pokedex = pokeJson.getString("pokedex");
+			this.tipo1 = pokeJson.getString("tipo1");
+			this.tipo2 = pokeJson.getString("tipo2");
+			this.sprite = pokeJson.getString("sprite");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
