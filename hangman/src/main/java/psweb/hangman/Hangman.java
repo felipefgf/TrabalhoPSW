@@ -8,6 +8,7 @@ public class Hangman
 	private int chances = 6;
 	private Word currentWord;
 	private List<Character> history;
+	private Pokemon pokemon;
 	
 	public Hangman()
 	{
@@ -17,7 +18,8 @@ public class Hangman
 	// Sorteia uma nova palavra
 	public void reset()
 	{
-		currentWord = new Word("Hello"); // TODO - Buscar de um dicionario
+		pokemon = new Pokemon();
+		currentWord = new Word(pokemon.getNome());
 		history.clear();
 		chances = 6;
 	}
