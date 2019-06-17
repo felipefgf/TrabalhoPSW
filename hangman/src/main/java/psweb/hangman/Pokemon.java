@@ -10,7 +10,6 @@ public class Pokemon {
 	String pokedex;
 	String tipo1;
 	String tipo2;
-	String sprite;
 	
 	public Pokemon() {
 		try {
@@ -30,7 +29,6 @@ public class Pokemon {
 			this.pokedex = pokeJson.getString("pokedex");
 			this.tipo1 = pokeJson.getString("tipo1");
 			this.tipo2 = pokeJson.getString("tipo2");
-			this.sprite = pokeJson.getString("sprite");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,12 +42,19 @@ public class Pokemon {
 		return pokedex;
 	}
 	
-	public String gettipo1() {
-		return tipo1;
-	}
-	
-	public String gettipo2() {
-		return tipo2;
+	public String getDica(int chances) {
+		if(chances < 4 && chances >= 2) {
+			if(tipo2.toString().contentEquals("---")) {
+				return "Seu tipo é (apenas): "+tipo1;
+			}else{
+				return "Seus tipos são: "+tipo1+" e "+tipo2;
+			}
+		}
+		if(chances < 2 && chances > 0) {
+			return "Seu número na Pokedex é: "+pokedex;
+		}
+		if(chances == 0)return "o nome dele era: "+nome;
+		return "Você ainda não tem direito a Dica, pq não tenta errar mais?";
 	}
 
 	@Override

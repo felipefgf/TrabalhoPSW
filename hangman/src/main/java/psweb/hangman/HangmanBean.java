@@ -53,9 +53,7 @@ public class HangmanBean
 	public boolean isGameLose()
 	{
 		return hangman.getChances()==0;
-	}
-
-	
+	}	
 	
 	//
 	// Métodos de Acesso
@@ -81,6 +79,14 @@ public class HangmanBean
 	
 	public void setLetter(String letter) {
 		this.letter = letter;
+	}
+	
+	public String getDica() {
+		return pokemon.getDica(this.getChances());
+	}
+	
+	public String getPokedex() {
+		return pokemon.getPokedex();
 	}
 }  
 
