@@ -19,7 +19,7 @@
 	        height: auto;
 	    }
 	</style>
-	<h:div id="divPai">
+	<h:panelGroup layout="block" id="divPai">
 		<h:form id="form">
 			<h2>Qual é esse pokemon?!</h2>
 			<h5>Somente pokemons da primeira geração! (#1 a #151)</h5>
@@ -74,7 +74,7 @@
 				<f:param name="autoPlay" value="true" />
 			</p:media>
 		</h:form>
-	</h:div>
+	</h:panelGroup>
 	<p:media rendered="#{hangmanBean.isNotGameOver()}" id="musica"
 		style="visibility:hidden;" value="resources/sounds/" width="0"
 		height="0" player="quicktime">

@@ -35,6 +35,14 @@ public class HangmanBean
 	public void guess()
 	{
 		char chr = letter.toCharArray()[0];
+		if(this.isGameWin()) {
+			musica = "";
+			sound = "ending.mp3";
+		}
+		if(this.isGameLose()) {
+			musica = "";
+			sound = "gameover.mp3";
+		}
 		if(!hangman.historyHas(chr)) {
 			if(hangman.input(chr)) {
 				sound = "lvlup.mp3";
@@ -79,24 +87,12 @@ public class HangmanBean
 	
 	public boolean isGameWin()
 	{
-		boolean retorno = false;
-		if(hangman.isComplete()) {
-			musica = "";
-			sound = "ending.mp3";
-			retorno = true;
-		}
-		return retorno;
+		return hangman.isComplete();
 	}
 	
 	public boolean isGameLose()
 	{
-		boolean retorno = false;
-		if(hangman.getChances()==0) {
-			musica = "";
-			sound = "gameover.mp3";
-			retorno = true;
-		}
-		return retorno;
+		return hangman.getChances()==0;
 	}	
 	
 	//
