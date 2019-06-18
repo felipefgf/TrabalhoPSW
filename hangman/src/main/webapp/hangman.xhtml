@@ -5,58 +5,68 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head>						
+<h:head>
 </h:head>
-	
+
 <h:body>
 	<h:form id="form">
 		<h2>Qual é esse pokemon?!</h2>
 		<h5>Somente pokemons da primeira geração! (#1 a #151)</h5>
-		<hr/>
-		<p:outputLabel value="Palavra: "  style="font-weight:bold;"/>
-		<p:outputLabel style="margin-left:1vw;letter-spacing: 1vw;" value="#{hangmanBean.word}" />
-		<br/>
-		<p:outputLabel value="Chances: "  style="font-weight:bold;"/>
-		<p:outputLabel value="#{hangmanBean.getChances()}"/>
-		<br/>
-		<p:outputLabel value="GLaDOS: "  style="font-weight:bold;"/>
+		<hr />
+		<p:outputLabel value="Palavra: " style="font-weight:bold;" />
+		<p:outputLabel style="margin-left:1vw;letter-spacing: 1vw;"
+			value="#{hangmanBean.word}" />
+		<br />
+		<p:outputLabel value="Chances: " style="font-weight:bold;" />
+		<p:outputLabel value="#{hangmanBean.getChances()}" />
+		<br />
+		<p:outputLabel value="GLaDOS: " style="font-weight:bold;" />
 		<p:outputLabel value="#{hangmanBean.dica}" />
-		<br/>
-		<p:outputLabel value="Jogadas: "  style="font-weight:bold;"/>
+		<br />
+		<p:outputLabel value="Jogadas: " style="font-weight:bold;" />
 		<p:outputLabel value="#{hangmanBean.attempts}" />
-		<hr/>
-		<p:outputLabel value="Alerta: "  style="font-weight:bold;"
-							rendered="#{hangmanBean.hasMensagem()}"/>
-		<p:outputLabel value="#{hangmanBean.getMensagem()}" 
-							rendered="#{hangmanBean.hasMensagem()}"/>
-		<br/>
+		<hr />
+		<p:outputLabel value="Alerta: " style="font-weight:bold;"
+			rendered="#{hangmanBean.hasMensagem()}" />
+		<p:outputLabel value="#{hangmanBean.getMensagem()}"
+			rendered="#{hangmanBean.hasMensagem()}" />
+		<br />
 		<p:inputText value="#{hangmanBean.letter}" maxlength="1" size="2"
-					  disabled="#{hangmanBean.isGameOver()}">
+			disabled="#{hangmanBean.isGameOver()}">
 			<p:ajax event="keyup" update="form" />
 		</p:inputText>
 		<p:commandButton value="Guess!" action="#{hangmanBean.guess()}"
-		                                update="form" 
-		                                disabled="#{(empty hangmanBean.letter) or hangmanBean.isGameOver()}" />
+			update="form"
+			disabled="#{(empty hangmanBean.letter) or hangmanBean.isGameOver()}" />
 		<p:spacer width="15px" />
 		<p:commandButton value="Reset" action="#{hangmanBean.reset()}"
-		                                update="form musica" />
+			update="form musica" />
 		<ui:fragment rendered="#{hangmanBean.isGameOver()}">
-			<hr/>
+			<hr />
 			<h2>
-				<h:outputText value="Acertou! Era o #{hangmanBean.getWordWithoutMask()}" rendered="#{hangmanBean.isGameWin()}">
-			  	
-			  	</h:outputText>		  
-				<h:outputText value="Errou! Era o #{hangmanBean.getWordWithoutMask()}"  
-				              rendered="#{hangmanBean.isGameLose()}"/>
-              	<h:graphicImage value="resources/sprites/#{hangmanBean.getPokedex()}.png"></h:graphicImage>
+				<h:outputText
+					value="Acertou! Era o #{hangmanBean.getWordWithoutMask()}"
+					rendered="#{hangmanBean.isGameWin()}">
+
+				</h:outputText>
+				<h:outputText
+					value="Errou! Era o #{hangmanBean.getWordWithoutMask()}"
+					rendered="#{hangmanBean.isGameLose()}" />
+				<h:graphicImage
+					value="resources/sprites/#{hangmanBean.getPokedex()}.png"></h:graphicImage>
 			</h2>
 		</ui:fragment>
-		<p:media rendered="#{hangmanBean.isNotGameOver()}" id="sound" style="visibility:hidden;" value="resources/sounds/#{hangmanBean.getSound()}" width="0" height="0" player="quicktime">
-		    <f:param name="autoPlay" value="true" />
+		<p:media rendered="#{hangmanBean.isNotGameOver()}" id="sound"
+			style="visibility:hidden;"
+			value="resources/sounds/#{hangmanBean.getSound()}" width="0"
+			height="0" player="quicktime">
+			<f:param name="autoPlay" value="true" />
 		</p:media>
 	</h:form>
-	<p:media rendered="#{hangmanBean.isNotGameOver()}" id="musica" style="visibility:hidden;" value="resources/sounds/" width="0" height="0" player="quicktime">
-	    <f:param name="autoPlay" value="true" />
+	<p:media rendered="#{hangmanBean.isNotGameOver()}" id="musica"
+		style="visibility:hidden;" value="resources/sounds/" width="0"
+		height="0" player="quicktime">
+		<f:param name="autoPlay" value="true" />
 	</p:media>
 </h:body>
 </html>
