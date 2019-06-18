@@ -14,6 +14,8 @@ public class HangmanBean
 	private String letter;
 	private Pokemon pokemon;
 	private String mensagem;
+	private String musica;
+	private String sound;
 	
 	
 	//
@@ -24,6 +26,7 @@ public class HangmanBean
 		pokemon = new Pokemon();
 		hangman = new Hangman();
 		hangman.reset(pokemon.getNome());
+		musica = "musicaTema.mp3";
 	}
 	
 	//
@@ -33,10 +36,15 @@ public class HangmanBean
 	{
 		char chr = letter.toCharArray()[0];
 		if(!hangman.historyHas(chr)) {
-			hangman.input(chr);
+			if(hangman.input(chr)) {
+				sound = "lvlup.mp3";
+			}else {
+				sound = "damage.mp3";
+			}
 			mensagem = "";
 		}else {
 			mensagem = "Essa Letra já foi usada!";
+			sound = "confuse.mp3";
 		}
 		letter="";
 	}
@@ -54,8 +62,14 @@ public class HangmanBean
 	
 	public void reset()
 	{
+		sound = "recovery.mp3";
 		pokemon = new Pokemon();
 		hangman.reset(pokemon.getNome());
+	}
+	
+	public boolean isNotGameOver()
+	{
+		return !(hangman.isComplete() || hangman.getChances()==0);
 	}
 	
 	public boolean isGameOver()
@@ -65,12 +79,22 @@ public class HangmanBean
 	
 	public boolean isGameWin()
 	{
-		return hangman.isComplete();
+		boolean retorno = false;
+		if(hangman.isComplete()) {
+			sound = "ending.mp3";
+			retorno = true;
+		}
+		return retorno;
 	}
 	
 	public boolean isGameLose()
 	{
-		return hangman.getChances()==0;
+		boolean retorno = false;
+		if(hangman.getChances()==0) {
+			sound = "gameover.mp3";
+			retorno = true;
+		}
+		return retorno;
 	}	
 	
 	//
@@ -110,6 +134,16 @@ public class HangmanBean
 	
 	public String getPokedex() {
 		return pokemon.getPokedex();
+	}
+	
+	public String getMusic() {
+		return musica;
+	}
+	
+	public String getSound() {
+		String som = sound;
+		sound = "";
+		return som;
 	}
 	
 	public String getWordWithoutMask() {

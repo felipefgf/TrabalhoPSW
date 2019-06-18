@@ -39,30 +39,24 @@
 		                                disabled="#{(empty hangmanBean.letter) or hangmanBean.isGameOver()}" />
 		<p:spacer width="15px" />
 		<p:commandButton value="Reset" action="#{hangmanBean.reset()}"
-		                                update="form" />
+		                                update="form musica" />
 		<ui:fragment rendered="#{hangmanBean.isGameOver()}">
 			<hr/>
 			<h2>
-				<h:outputText value="Acertou! Era o #{hangmanBean.getWordWithoutMask()}" 
-							  rendered="#{hangmanBean.isGameWin()}"/>
+				<h:outputText value="Acertou! Era o #{hangmanBean.getWordWithoutMask()}" rendered="#{hangmanBean.isGameWin()}">
+			  	
+			  	</h:outputText>		  
 				<h:outputText value="Errou! Era o #{hangmanBean.getWordWithoutMask()}"  
 				              rendered="#{hangmanBean.isGameLose()}"/>
               	<h:graphicImage value="resources/sprites/#{hangmanBean.getPokedex()}.png"></h:graphicImage>
 			</h2>
 		</ui:fragment>
+		<p:media rendered="#{hangmanBean.isNotGameOver()}" id="sound" style="visibility:hidden;" value="resources/sounds/#{hangmanBean.getSound()}" width="0" height="0" player="quicktime">
+		    <f:param name="autoPlay" value="true" />
+		</p:media>
 	</h:form>
-	<p:media style="visibility:hidden;" value="http://23.237.126.42/ost/pokemon-heartgold-and-soulsilver/nflcwgszrp/143%20Battle%21%20Trainer%20%28Kanto%29.mp3" width="0" height="0" player="quicktime">
+	<p:media rendered="#{hangmanBean.isNotGameOver()}" id="musica" style="visibility:hidden;" value="resources/sounds/" width="0" height="0" player="quicktime">
 	    <f:param name="autoPlay" value="true" />
 	</p:media>
 </h:body>
 </html>
-
-
-
-
-
-
-
-
-
-
