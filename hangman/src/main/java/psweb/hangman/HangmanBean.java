@@ -81,6 +81,7 @@ public class HangmanBean
 	{
 		boolean retorno = false;
 		if(hangman.isComplete()) {
+			musica = "";
 			sound = "ending.mp3";
 			retorno = true;
 		}
@@ -91,6 +92,7 @@ public class HangmanBean
 	{
 		boolean retorno = false;
 		if(hangman.getChances()==0) {
+			musica = "";
 			sound = "gameover.mp3";
 			retorno = true;
 		}
