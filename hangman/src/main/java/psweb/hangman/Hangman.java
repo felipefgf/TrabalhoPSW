@@ -33,21 +33,31 @@ public class Hangman
 	public boolean input(char chr)
 	{
 		boolean match = currentWord.input(chr);				
-		
-		// Atualiza o contador de vidas
 		if (!match)
 			chances--;
-		
-		// Atualiza o histórico
 		history.add(Character.toUpperCase(chr));
-		
 		return match;
+	}
+	
+	//testa se o caractere está no history
+	public boolean historyHas(char chEntrada) {
+		for (int i=0;i<history.size();i++) {
+			Character char1 = new Character(history.get(i));
+			Character char2 = new Character(chEntrada);
+			char1 = Character.toUpperCase(char1);
+			char2 = Character.toUpperCase(char2);
+			if(char1.equals(char2)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public boolean isComplete()
 	{
 		return currentWord.isComplete();
 	}	
+	
 	
 	//
 	// Métodos de acesso

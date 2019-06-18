@@ -17,18 +17,15 @@ public class Word
 	public boolean input(char chr)
 	{
 		chr = Character.toUpperCase(chr);
-		
 		boolean match = false;
-		
 		for (int i=0;i<wordChars.length;i++)
 		{
 			if (wordChars[i] == chr && wordMask[i] == '_')
 			{
 				match = true;
 				wordMask[i] = chr;
-			}									
+			}						
 		}
-		
 		return match;
 	}
 

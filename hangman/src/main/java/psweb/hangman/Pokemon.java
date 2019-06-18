@@ -23,7 +23,6 @@ public class Pokemon {
 						+ response.getStatus());
 			}
 			String output = response.getEntity(String.class);
-			
 			JSONObject pokeJson = new JSONObject(output.toString());  // Fonte: https://www.devmedia.com.br/trabalhando-com-json-em-java-o-pacote-org-json/25480
 			this.nome = pokeJson.getString("pokemon");
 			this.pokedex = pokeJson.getString("pokedex");
@@ -58,7 +57,7 @@ public class Pokemon {
 		if(chances == 0)return "Começa de novo, vai que esse pokemon reaparece e você, pelo menos, já conhece um...";
 		return "";
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Pokemon: "+nome;

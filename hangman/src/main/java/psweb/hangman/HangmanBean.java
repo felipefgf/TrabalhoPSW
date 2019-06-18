@@ -13,6 +13,7 @@ public class HangmanBean
 	private Hangman hangman;
 	private String letter;
 	private Pokemon pokemon;
+	private String mensagem;
 	
 	
 	//
@@ -31,8 +32,24 @@ public class HangmanBean
 	public void guess()
 	{
 		char chr = letter.toCharArray()[0];
-		hangman.input(chr);
+		if(!hangman.historyHas(chr)) {
+			hangman.input(chr);
+			mensagem = "";
+		}else {
+			mensagem = "Essa Letra já foi usada!";
+		}
 		letter="";
+	}
+	
+	public boolean hasMensagem() {
+		if(mensagem == "") {
+			return false;
+		}
+		return true;
+	}
+	
+	public String getMensagem() {
+		return mensagem;
 	}
 	
 	public void reset()
@@ -71,7 +88,7 @@ public class HangmanBean
 	
 	public String getAttempts()
 	{
-		return hangman.getInputHistory().toString();
+		return hangman.getInputHistory().toString().replace("[", "").replace("]", "");
 	}
 	
 	public String getLetter() {
@@ -84,6 +101,11 @@ public class HangmanBean
 	
 	public String getDica() {
 		return pokemon.getDica(this.getChances());
+	}
+	
+	public String giveDica(String dica) {
+		dica = dica + " " + getDica();
+		return dica;
 	}
 	
 	public String getPokedex() {
