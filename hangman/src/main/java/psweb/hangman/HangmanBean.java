@@ -35,14 +35,6 @@ public class HangmanBean
 	public void guess()
 	{
 		char chr = letter.toCharArray()[0];
-		if(this.isGameWin()) {
-			musica = "";
-			sound = "ending.mp3";
-		}
-		if(this.isGameLose()) {
-			musica = "";
-			sound = "gameover.mp3";
-		}
 		if(!hangman.historyHas(chr)) {
 			if(hangman.input(chr)) {
 				sound = "lvlup.mp3";
@@ -53,6 +45,14 @@ public class HangmanBean
 		}else {
 			mensagem = "Essa Letra já foi usada!";
 			sound = "confuse.mp3";
+		}
+		if(this.isGameWin()) {
+			musica = "";
+			sound = "ending.mp3";
+		}
+		if(this.isGameLose()) {
+			musica = "";
+			sound = "gameover.mp3";
 		}
 		letter="";
 	}
