@@ -6,42 +6,36 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+	<tittle>Quem é esse Pokemon?</tittle>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </h:head>
 
 <h:body>
-	<style type="text/css">
-	    /** Demo **/
-	    .ui-outputlabel {
-	        font-weight: bold;
-	    }
-	     
-	    .ui-orderlist .ui-orderlist-list {
-	        height: auto;
-	    }
-	</style>
-	<h:panelGroup layout="block" id="divPai">
+	<h:panelGroup class="col s12 m10 l8 offset-m1 offset-l2" layout="block" id="divPai">
 		<h:form id="form">
 			<h2>Qual é esse pokemon?!</h2>
 			<h5>Somente pokemons da primeira geração! (#1 a #151)</h5>
-			<hr />
+			<hr/>
 			<p:outputLabel value="Palavra: " style="font-weight:bold;" />
 			<p:outputLabel style="margin-left:1vw;letter-spacing: 1vw;"
 				value="#{hangmanBean.word}" />
-			<br />
+			<br/>
 			<p:outputLabel value="Chances: " style="font-weight:bold;" />
 			<p:outputLabel value="#{hangmanBean.getChances()}" />
-			<br />
+			<br/>
 			<p:outputLabel value="GLaDOS: " style="font-weight:bold;" />
 			<p:outputLabel value="#{hangmanBean.dica}" />
-			<br />
+			<br/>
 			<p:outputLabel value="Jogadas: " style="font-weight:bold;" />
 			<p:outputLabel value="#{hangmanBean.attempts}" />
-			<hr />
+			<hr/>
 			<p:outputLabel value="Alerta: " style="font-weight:bold;"
-				rendered="#{hangmanBean.hasMensagem()}" />
+				rendered="#{hangmanBean.hasMensagem()}"/>
 			<p:outputLabel value="#{hangmanBean.getMensagem()}"
-				rendered="#{hangmanBean.hasMensagem()}" />
-			<br />
+				rendered="#{hangmanBean.hasMensagem()}"/>
+			<br/>
 			<p:inputText value="#{hangmanBean.letter}" maxlength="1" size="2"
 				disabled="#{hangmanBean.isGameOver()}">
 				<p:ajax event="keyup" update="form" />
