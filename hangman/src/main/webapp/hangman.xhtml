@@ -23,12 +23,12 @@
 			<h5>Somente pokemons da primeira geração! (#1 a #151)</h5>
 			<hr/>
 			<p:outputLabel value="Palavra: " style="font-weight:bold;" />
-			<p:outputLabel style="margin-left:1vw;letter-spacing: 1vw;"
+			<p:outputLabel style="margin-left:1vw;font-family: 'unown' !important;letter-spacing: 1vw;"
 				value="#{hangmanBean.word}" />
 			<br/>
 			<p:outputLabel value="Chances: " style="font-weight:bold;" />
-			<h:graphicImage
-				value="resources/sprites/pokebolas#{hangmanBean.getChances()}.png">
+			<h:graphicImage style="height:2vh;"
+				value="resources/imagens/chances#{hangmanBean.getChances()}.png">
 			</h:graphicImage>
 			<br/>
 			<p:outputLabel value="GLaDOS: " style="font-weight:bold;" />
