@@ -9,10 +9,14 @@
 	<tittle>Quem é esse Pokemon?</tittle>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
 </h:head>
 
-<h:body>
+<h:body styleClass="row">
+	<style>
+		label{
+			color: black !important;
+		}
+	</style>
 	<h:panelGroup class="col s12 m10 l8 offset-m1 offset-l2" layout="block" id="divPai">
 		<h:form id="form">
 			<h2>Qual é esse pokemon?!</h2>
@@ -23,7 +27,9 @@
 				value="#{hangmanBean.word}" />
 			<br/>
 			<p:outputLabel value="Chances: " style="font-weight:bold;" />
-			<p:outputLabel value="#{hangmanBean.getChances()}" />
+			<h:graphicImage
+				value="resources/sprites/pokebolas#{hangmanBean.getChances()}.png">
+			</h:graphicImage>
 			<br/>
 			<p:outputLabel value="GLaDOS: " style="font-weight:bold;" />
 			<p:outputLabel value="#{hangmanBean.dica}" />
@@ -58,7 +64,7 @@
 						rendered="#{hangmanBean.isGameLose()}" />
 					<h:graphicImage
 						value="resources/sprites/#{hangmanBean.getPokedex()}.png">
-						</h:graphicImage>
+					</h:graphicImage>
 				</h2>
 			</ui:fragment>
 			<p:media id="sound"

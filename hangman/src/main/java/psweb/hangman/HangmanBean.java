@@ -13,7 +13,7 @@ public class HangmanBean
 	private Hangman hangman;
 	private String letter;
 	private Pokemon pokemon;
-	private String mensagem;
+	private String mensagem = "";
 	private String musica;
 	private String sound;
 	
